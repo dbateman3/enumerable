@@ -117,7 +117,15 @@ module Enumerable
 
 end
 
+
+
+
 test_array = [1, 2, 3, 4, 5]
+
+map = Proc.new { |item|  item + 1 }
+
+answer8 = test_array.my_map(&map)
+puts answer8
 
 test_array.my_each do |item|
 	puts item
@@ -149,10 +157,18 @@ answer4 = test_array.my_count { |item| item == 5 }
 puts answer4
 # my_count works!
 
-answer5 = test_array.my_map { |item| item + 1 }
-puts answer5
+#answer5 = test_array.my_map { |item| item + 1 }
+#puts answer5
 # map works!
 
 answer6 = test_array.my_inject(0) { |num, item| num + item  }
 puts answer6
 # my_inject works! woo hoo!
+
+def multiply_els(array)
+	array.inject(1) { |num, item| num * item }
+
+end
+
+answer7 = multiply_els(test_array)
+puts answer7
